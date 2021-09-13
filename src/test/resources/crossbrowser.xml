@@ -4,19 +4,19 @@
     <test name="Chrome">
         <classes>
             <class name="tests.CrossBrowserTesting"/>
-            <parameter name="BrowserType" value="Chrome"></parameter>
+            <parameter name="BrowserType" value="Chrome"/>
         </classes>
     </test>
     <test name="Firefox">
         <classes>
             <class name="tests.CrossBrowserTesting"/>
-            <parameter name="BrowserType" value="Firefox"></parameter>
+            <parameter name="BrowserType" value="Firefox"/>
         </classes>
     </test>
     <test name="Edge">
         <classes>
             <class name="tests.CrossBrowserTesting"/>
-            <parameter name="BrowserType" value="Edge"></parameter>
+            <parameter name="BrowserType" value="Edge"/>
         </classes>
     </test>
 </suite>
