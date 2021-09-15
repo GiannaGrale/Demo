@@ -12,6 +12,8 @@ import utils.Listener;
 
 @Listeners({Listener.class})
 public class CrossBrowserTesting extends BaseCross {
+     ReadProperties properties = ReadProperties.getInstance();
+
 
     @Test
     public void test(){

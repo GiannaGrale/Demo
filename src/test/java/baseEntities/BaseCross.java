@@ -12,13 +12,7 @@ import org.testng.annotations.Parameters;
 
 
 public class BaseCross {
-    public WebDriver driver;
-    public ReadProperties properties;
-
-    @BeforeTest
-    public void setProperties() {
-        properties = ReadProperties.getInstance();
-    }
+    public  WebDriver driver;
 
     @AfterMethod
     public void tearDownMethod() {
