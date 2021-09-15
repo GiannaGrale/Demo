@@ -2,7 +2,7 @@ package tests;
 
 import baseEntities.BaseCross;
 
-import org.openqa.selenium.WebDriver;
+
 import org.testng.Assert;
 import org.testng.annotations.*;
 import steps_Anna.LoginStep;
