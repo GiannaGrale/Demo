@@ -20,18 +20,7 @@ public class CrossBrowserTesting extends BaseCross {
 
 
     @Test
-    @Parameters({"BrowserType"})
     public void test(String browserType){
-        if (browserType.equalsIgnoreCase("Chrome")) {
-            WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver();
-        } else if (browserType.equalsIgnoreCase("Edge")) {
-            WebDriverManager.edgedriver().setup();
-            driver = new EdgeDriver();
-        } else if (browserType.equalsIgnoreCase("Firefox")) {
-            WebDriverManager.firefoxdriver().setup();
-            driver = new FirefoxDriver();
-        }
         ProjectStep projectStep = new LoginStep(driver)
                 .correctLogin(properties.getLogin(), properties.getPassword());
         Assert.assertEquals(projectStep.getDashboardPage().getDashboardButtonText().trim(), "DASHBOARD");
