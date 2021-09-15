@@ -26,34 +26,8 @@ public class BaseCross  {
 
     @BeforeTest
     @Parameters({"BrowserType"})
-    public void selectDriver (String browserType) {
+    public void setUp(String browserType) {
         properties = ReadProperties.getInstance();
-            switch (browserType) {
-                case "Chrome" :
-                    WebDriverManager.getInstance(DriverManagerType.CHROME).setup();
-                    ChromeOptions chromeOptions = new ChromeOptions();
-                    chromeOptions.addArguments("disable-gpu");
-                    chromeOptions.addArguments("--start-maximized");
-                    chromeOptions.setHeadless(ReadProperties.getInstance().isHeadless());
-                    driver = new ChromeDriver(chromeOptions);
-                    break;
-                case "Firefox" :
-                    WebDriverManager.getInstance(DriverManagerType.FIREFOX).setup();
-                    FirefoxOptions firefoxOptions = new FirefoxOptions();
-                    firefoxOptions.setHeadless(ReadProperties.getInstance().isHeadless());
-                    driver = new FirefoxDriver(firefoxOptions);
-                    break;
-                case "Edge" :
-                    WebDriverManager.getInstance(DriverManagerType.EDGE).setup();
-                    driver = new EdgeDriver();
-                    break;
-                default :
-                    throw new AssertionError("This browser is not supported");
-            }
-        }
-
-        public WebDriver getDriver() {
-            return driver;
-        }
-
+        driver = CrossBrowser.selectDriver(browserType);
+    }
 }
