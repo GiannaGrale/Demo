@@ -8,26 +8,37 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.firefox.FirefoxOptions;
 
 public class CrossBrowser {
-    public WebDriver driver;
+    private WebDriver driver;
 
-    public WebDriver selectDriver (String browserType) {
+    public CrossBrowser(String browserType) {
         switch (browserType) {
-            case "Chrome":
+            case "Chrome" :
                 WebDriverManager.getInstance(DriverManagerType.CHROME).setup();
-                driver = new ChromeDriver();
+                ChromeOptions chromeOptions = new ChromeOptions();
+                chromeOptions.addArguments("disable-gpu");
+                chromeOptions.addArguments("--start-maximized");
+                chromeOptions.setHeadless(ReadProperties.getInstance().isHeadless());
+                driver = new ChromeDriver(chromeOptions);
                 break;
-            case "Firefox":
+            case "Firefox" :
                 WebDriverManager.getInstance(DriverManagerType.FIREFOX).setup();
-                driver = new FirefoxDriver();
+                FirefoxOptions firefoxOptions = new FirefoxOptions();
+                firefoxOptions.setHeadless(ReadProperties.getInstance().isHeadless());
+                driver = new FirefoxDriver(firefoxOptions);
                 break;
-            case "Edge":
+            case "Edge" :
                 WebDriverManager.getInstance(DriverManagerType.EDGE).setup();
                 driver = new EdgeDriver();
                 break;
-            default:
+            default :
+                throw new AssertionError("This browser is not supported");
         }
+    }
+
+    public WebDriver getDriver() {
         return driver;
     }
 }
