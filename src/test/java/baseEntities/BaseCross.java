@@ -18,6 +18,7 @@ import org.testng.annotations.Test;
 
 public class BaseCross {
     public WebDriver driver;
+    public ReadProperties properties;
 
     @AfterMethod
     public void tearDownMethod() {
@@ -27,6 +28,7 @@ public class BaseCross {
     @BeforeTest
     @Parameters({"BrowserType"})
     public void setBrowserType(String browserType) {
+         properties = ReadProperties.getInstance();
         if (browserType.equalsIgnoreCase("Edge")) {
             WebDriverManager.edgedriver().setup();
             driver = new EdgeDriver();

@@ -16,11 +16,8 @@ import utils.Listener;
 
 @Listeners({Listener.class})
 public class CrossBrowserTesting extends BaseCross {
-     ReadProperties properties = ReadProperties.getInstance();
-
-
     @Test
-    public void test(){
+    public void test (){
         ProjectStep projectStep = new LoginStep(driver)
                 .correctLogin(properties.getLogin(), properties.getPassword());
         Assert.assertEquals(projectStep.getDashboardPage().getDashboardButtonText().trim(), "DASHBOARD");
