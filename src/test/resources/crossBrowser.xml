@@ -16,7 +16,7 @@
     <test name="Edge">
         <classes>
             <class name="tests.CrossBrowserTesting"/>
-            <parameter name="BrowserType" value="Edge"/>
+            <parameter name="BrowserType" value="Opera"/>
         </classes>
     </test>
 </suite>
