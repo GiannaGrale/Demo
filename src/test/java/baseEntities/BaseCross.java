@@ -12,25 +12,12 @@ import org.testng.annotations.Parameters;
 
 
 public class BaseCross {
-    public  WebDriver driver;
+    public WebDriver driver;
 
     @AfterMethod
     public void tearDownMethod() {
         driver.quit();
     }
 
-    @BeforeTest
-    @Parameters({"BrowserType"})
-    public void setUpBrowser(String browserType) {
-        if (browserType.equalsIgnoreCase("Chrome")) {
-            WebDriverManager.chromedriver().setup();
-            driver = new ChromeDriver();
-        } else if (browserType.equalsIgnoreCase("Edge")) {
-            WebDriverManager.edgedriver().setup();
-            driver = new EdgeDriver();
-        } else if (browserType.equalsIgnoreCase("Firefox")) {
-            WebDriverManager.firefoxdriver().setup();
-            driver = new FirefoxDriver();
-        }
-    }
+
 }
