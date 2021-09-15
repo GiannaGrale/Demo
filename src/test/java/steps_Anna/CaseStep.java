@@ -54,7 +54,6 @@ public class CaseStep extends BaseStep {
         attachElement.click();
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", casePage.getTestCaseADD());
         casePage.getTestCaseADD().click();
-        CasesOverviewPage casesOverviewPage = new CasesOverviewPage(driver, false);
         return this;
     }
 

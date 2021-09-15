@@ -44,8 +44,7 @@ public class AnnaSmokeTest extends BaseTest {
     public void createTestCaseWithAttachmentTest() throws InterruptedException, AWTException {
         CaseStep caseStep = new LoginStep(driver)
                 .correctLogin(properties.getLogin(), properties.getPassword())
-                .addProjectWithFutureTestCase(properties.getProjectName(), properties.getAnnouncementMessage())
-                .addTestCaseWithFile(properties.getProjectName());
+                .addProjectWithFutureTestCase(properties.getProjectName(), properties.getAnnouncementMessage());
         Assert.assertEquals(caseStep.getCaseOverviewPage().getMessageSuccess().getText(), "Successfully added the new test case. Add another");
     }
 }
