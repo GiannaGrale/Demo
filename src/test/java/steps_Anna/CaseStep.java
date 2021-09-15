@@ -50,7 +50,7 @@ public class CaseStep extends BaseStep {
 
         WebDriverWait webDriverWait = new WebDriverWait(driver, 20);
         webDriverWait.until(ExpectedConditions.textToBePresentInElement(casePage.deleteAttachment(), "Delete"));
-        WebElement attachElement = webDriverWait.until(ExpectedConditions.elementToBeClickable(By.id("attachmentNewSubmit")));
+        WebElement attachElement = webDriverWait.until(ExpectedConditions.elementToBeClickable(By.id("ww")));
         attachElement.click();
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", casePage.getTestCaseADD());
         casePage.getTestCaseADD().click();

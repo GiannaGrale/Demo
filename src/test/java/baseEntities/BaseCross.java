@@ -28,6 +28,5 @@ public class BaseCross  {
     @Parameters({"BrowserType"})
     public void setUp(String browserType) {
         properties = ReadProperties.getInstance();
-        driver = CrossBrowser.selectDriver(browserType);
     }
 }
