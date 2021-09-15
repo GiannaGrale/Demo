@@ -20,7 +20,7 @@ public class CrossBrowserTesting extends BaseCross {
 
 
     @Test
-    public void test(String browserType){
+    public void test(){
         ProjectStep projectStep = new LoginStep(driver)
                 .correctLogin(properties.getLogin(), properties.getPassword());
         Assert.assertEquals(projectStep.getDashboardPage().getDashboardButtonText().trim(), "DASHBOARD");
